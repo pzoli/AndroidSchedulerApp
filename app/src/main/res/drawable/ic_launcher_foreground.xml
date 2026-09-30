@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Top Stopwatch Crown / Button -->
+    <path
+        android:fillColor="#E2E8F0"
+        android:pathData="M52,26h4v5h-4z" />
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M48,22h12v4h-12z" />
+
+    <!-- Left & Right Angled Side Buttons -->
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M35.5,31.5 l3.5,-3.5 l2.8,2.8 l-3.5,3.5 z" />
+    <path
+        android:fillColor="#94A3B8"
+        android:pathData="M72.5,28 l3.5,3.5 l-2.8,2.8 l-3.5,-3.5 z" />
+
+    <!-- Outer Timer Ring (Dark Slate Frame) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#475569"
+        android:strokeWidth="3.5"
+        android:pathData="M54,56m-22,0a22,22 0 1,1 44,0a22,22 0 1,1 -44,0" />
+
+    <!-- Active Interval Arc Highlight (Vibrant Cyan to Emerald Gradient) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M54,34 A22,22 0 1,1 32,56">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:startX="54"
+                android:startY="34"
+                android:endX="32"
+                android:endY="56"
+                android:type="linear">
+                <item android:color="#38BDF8" android:offset="0.0" />
+                <item android:color="#4ADE80" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Outer Interval Brackets (Representing Nested Repeating Intervals) -->
+    <!-- Left Bracket '(' -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M26,42 C20,51 20,61 26,70" />
+
+    <!-- Right Bracket ')' -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M82,42 C88,51 88,61 82,70" />
+
+    <!-- Clock Hands (White / Bright Accent) -->
+    <!-- Minute Hand (Pointing up) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M54,56 L54,42" />
+
+    <!-- Hour Hand (Pointing right-down) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#F59E0B"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M54,56 L64,62" />
+
+    <!-- Center Pivot Dot -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,56m-3,0a3,3 0 1,1 6,0a3,3 0 1,1 -6,0" />
+</vector>
