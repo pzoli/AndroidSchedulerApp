@@ -1,4 +1,4 @@
-package hu.infokristaly.homework4timersonandroid
+package hu.infokristaly.androidschedulerapp
 
 import org.junit.Test
 

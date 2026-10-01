@@ -1,4 +1,4 @@
-package hu.infokristaly.homework4timersonandroid.ui
+package hu.infokristaly.androidschedulerapp.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,7 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import hu.infokristaly.homework4timersonandroid.R
+import hu.infokristaly.androidschedulerapp.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

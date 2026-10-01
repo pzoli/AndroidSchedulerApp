@@ -1,4 +1,4 @@
-package hu.infokristaly.homework4timersonandroid
+package hu.infokristaly.androidschedulerapp
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -12,10 +12,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
-import hu.infokristaly.homework4timersonandroid.ui.LocalizedApp
-import hu.infokristaly.homework4timersonandroid.ui.TimerMainScreen
-import hu.infokristaly.homework4timersonandroid.ui.theme.Homework4TimersOnAndroidTheme
-import hu.infokristaly.homework4timersonandroid.viewmodel.TimerViewModel
+import hu.infokristaly.androidschedulerapp.ui.LocalizedApp
+import hu.infokristaly.androidschedulerapp.ui.TimerMainScreen
+import hu.infokristaly.androidschedulerapp.ui.theme.Homework4TimersOnAndroidTheme
+import hu.infokristaly.androidschedulerapp.viewmodel.TimerViewModel
 
 class MainActivity : ComponentActivity() {
 

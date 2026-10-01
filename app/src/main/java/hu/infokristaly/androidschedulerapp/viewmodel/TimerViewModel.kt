@@ -1,16 +1,16 @@
-package hu.infokristaly.homework4timersonandroid.viewmodel
+package hu.infokristaly.androidschedulerapp.viewmodel
 
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import hu.infokristaly.homework4timersonandroid.data.ExecutionStep
-import hu.infokristaly.homework4timersonandroid.data.IntervalItemType
-import hu.infokristaly.homework4timersonandroid.data.PreferencesRepository
-import hu.infokristaly.homework4timersonandroid.data.SavedIntervalList
-import hu.infokristaly.homework4timersonandroid.data.TimerIntervalItem
-import hu.infokristaly.homework4timersonandroid.data.toSavedItem
-import hu.infokristaly.homework4timersonandroid.service.TimerService
+import hu.infokristaly.androidschedulerapp.data.ExecutionStep
+import hu.infokristaly.androidschedulerapp.data.IntervalItemType
+import hu.infokristaly.androidschedulerapp.data.PreferencesRepository
+import hu.infokristaly.androidschedulerapp.data.SavedIntervalList
+import hu.infokristaly.androidschedulerapp.data.TimerIntervalItem
+import hu.infokristaly.androidschedulerapp.data.toSavedItem
+import hu.infokristaly.androidschedulerapp.service.TimerService
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -516,7 +516,7 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
             }
             android.widget.Toast.makeText(
                 context,
-                context.getString(hu.infokristaly.homework4timersonandroid.R.string.export_success_toast),
+                context.getString(hu.infokristaly.androidschedulerapp.R.string.export_success_toast),
                 android.widget.Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
@@ -533,7 +533,7 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
             }
             android.widget.Toast.makeText(
                 context,
-                context.getString(hu.infokristaly.homework4timersonandroid.R.string.export_success_toast),
+                context.getString(hu.infokristaly.androidschedulerapp.R.string.export_success_toast),
                 android.widget.Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
@@ -543,7 +543,7 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
 
     fun importPresetsFromUri(context: Context, uri: android.net.Uri) {
         val gson = com.google.gson.Gson()
-        val copiedSuffix = context.getString(hu.infokristaly.homework4timersonandroid.R.string.copied_suffix)
+        val copiedSuffix = context.getString(hu.infokristaly.androidschedulerapp.R.string.copied_suffix)
 
         try {
             val json = context.contentResolver.openInputStream(uri)?.use { inputStream ->
@@ -565,7 +565,7 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
             if (importedLists.isNullOrEmpty()) {
                 android.widget.Toast.makeText(
                     context,
-                    context.getString(hu.infokristaly.homework4timersonandroid.R.string.import_error_toast),
+                    context.getString(hu.infokristaly.androidschedulerapp.R.string.import_error_toast),
                     android.widget.Toast.LENGTH_SHORT
                 ).show()
                 return
@@ -589,7 +589,7 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
                     name = newName,
                     createdAt = System.currentTimeMillis(),
                     items = imported.items.map { item ->
-                        hu.infokristaly.homework4timersonandroid.data.SavedIntervalItem(
+                        hu.infokristaly.androidschedulerapp.data.SavedIntervalItem(
                             id = java.util.UUID.randomUUID().toString(),
                             minutes = item.minutes,
                             label = item.label,
@@ -607,14 +607,14 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
 
             android.widget.Toast.makeText(
                 context,
-                context.getString(hu.infokristaly.homework4timersonandroid.R.string.import_success_toast, importedCount),
+                context.getString(hu.infokristaly.androidschedulerapp.R.string.import_success_toast, importedCount),
                 android.widget.Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
             e.printStackTrace()
             android.widget.Toast.makeText(
                 context,
-                context.getString(hu.infokristaly.homework4timersonandroid.R.string.import_error_toast),
+                context.getString(hu.infokristaly.androidschedulerapp.R.string.import_error_toast),
                 android.widget.Toast.LENGTH_SHORT
             ).show()
         }

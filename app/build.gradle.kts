@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "hu.infokristaly.homework4timersonandroid"
+    namespace = "hu.infokristaly.androidschedulerapp"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "hu.infokristaly.homework4timersonandroid"
+        applicationId = "hu.infokristaly.androidschedulerapp"
         minSdk = 31
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "1.0c"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

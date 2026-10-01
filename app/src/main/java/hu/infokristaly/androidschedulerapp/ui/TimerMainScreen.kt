@@ -1,4 +1,4 @@
-package hu.infokristaly.homework4timersonandroid.ui
+package hu.infokristaly.androidschedulerapp.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -74,11 +74,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import hu.infokristaly.homework4timersonandroid.R
-import hu.infokristaly.homework4timersonandroid.data.IntervalItemType
-import hu.infokristaly.homework4timersonandroid.data.SavedIntervalList
-import hu.infokristaly.homework4timersonandroid.data.TimerIntervalItem
-import hu.infokristaly.homework4timersonandroid.viewmodel.TimerViewModel
+import hu.infokristaly.androidschedulerapp.R
+import hu.infokristaly.androidschedulerapp.data.IntervalItemType
+import hu.infokristaly.androidschedulerapp.data.SavedIntervalList
+import hu.infokristaly.androidschedulerapp.data.TimerIntervalItem
+import hu.infokristaly.androidschedulerapp.viewmodel.TimerViewModel
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts

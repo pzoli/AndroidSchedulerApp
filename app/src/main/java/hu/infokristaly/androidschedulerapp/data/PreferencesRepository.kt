@@ -1,4 +1,4 @@
-package hu.infokristaly.homework4timersonandroid.data
+package hu.infokristaly.androidschedulerapp.data
 
 import android.content.Context
 import android.content.SharedPreferences

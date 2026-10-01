@@ -1,4 +1,4 @@
-package hu.infokristaly.homework4timersonandroid.ui
+package hu.infokristaly.androidschedulerapp.ui
 
 import android.content.Context
 import android.content.res.Configuration

@@ -1,4 +1,4 @@
-package hu.infokristaly.homework4timersonandroid.service
+package hu.infokristaly.androidschedulerapp.service
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -14,8 +14,8 @@ import android.os.Vibrator
 import android.os.VibratorManager
 import android.speech.tts.TextToSpeech
 import androidx.core.app.NotificationCompat
-import hu.infokristaly.homework4timersonandroid.MainActivity
-import hu.infokristaly.homework4timersonandroid.R
+import hu.infokristaly.androidschedulerapp.MainActivity
+import hu.infokristaly.androidschedulerapp.R
 import java.util.Locale
 
 class TimerService : Service(), TextToSpeech.OnInitListener {

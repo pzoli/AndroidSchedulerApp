@@ -1,10 +1,10 @@
-package hu.infokristaly.homework4timersonandroid
+package hu.infokristaly.androidschedulerapp
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import hu.infokristaly.homework4timersonandroid.data.IntervalItemType
-import hu.infokristaly.homework4timersonandroid.data.SavedIntervalItem
-import hu.infokristaly.homework4timersonandroid.data.SavedIntervalList
+import hu.infokristaly.androidschedulerapp.data.IntervalItemType
+import hu.infokristaly.androidschedulerapp.data.SavedIntervalItem
+import hu.infokristaly.androidschedulerapp.data.SavedIntervalList
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

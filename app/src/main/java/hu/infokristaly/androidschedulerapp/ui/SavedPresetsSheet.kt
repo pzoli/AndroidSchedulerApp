@@ -1,4 +1,4 @@
-package hu.infokristaly.homework4timersonandroid.ui
+package hu.infokristaly.androidschedulerapp.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -46,9 +46,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import hu.infokristaly.homework4timersonandroid.R
-import hu.infokristaly.homework4timersonandroid.data.SavedIntervalList
-import hu.infokristaly.homework4timersonandroid.data.TimerIntervalItem
+import hu.infokristaly.androidschedulerapp.R
+import hu.infokristaly.androidschedulerapp.data.SavedIntervalList
+import hu.infokristaly.androidschedulerapp.data.TimerIntervalItem
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

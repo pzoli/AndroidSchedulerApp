@@ -1,8 +1,7 @@
-package hu.infokristaly.homework4timersonandroid
+package hu.infokristaly.androidschedulerapp
 
-import hu.infokristaly.homework4timersonandroid.data.ExecutionStep
-import hu.infokristaly.homework4timersonandroid.data.IntervalItemType
-import hu.infokristaly.homework4timersonandroid.data.TimerIntervalItem
+import hu.infokristaly.androidschedulerapp.data.ExecutionStep
+import hu.infokristaly.androidschedulerapp.data.TimerIntervalItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
