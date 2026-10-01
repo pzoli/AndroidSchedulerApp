@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Interval Timer</string>
+    <string name="app_name">Android Scheduler App</string>
 
     <!-- Main Screen & Header -->
     <string name="loaded_preset_label">Loaded preset: </string>
