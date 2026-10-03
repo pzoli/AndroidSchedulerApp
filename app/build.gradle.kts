@@ -11,8 +11,8 @@ android {
         applicationId = "hu.infokristaly.androidschedulerapp"
         minSdk = 31
         targetSdk = 36
-        versionCode = 4
-        versionName = "1.0d"
+        versionCode = 5
+        versionName = "1.0e"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
