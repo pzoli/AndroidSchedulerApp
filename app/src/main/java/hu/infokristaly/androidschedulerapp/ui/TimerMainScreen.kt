@@ -20,13 +20,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowDownward
-import androidx.compose.material.icons.filled.ArrowUpward
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.DragHandle
 import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.FolderOpen
 import androidx.compose.material.icons.filled.NoteAdd
@@ -67,6 +67,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -74,6 +75,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import hu.infokristaly.androidschedulerapp.R
 import hu.infokristaly.androidschedulerapp.data.IntervalItemType
 import hu.infokristaly.androidschedulerapp.data.SavedIntervalList
@@ -456,12 +458,22 @@ fun TimerMainScreen(viewModel: TimerViewModel) {
                                 }
                             }
                         } else {
+                            val listState = rememberLazyListState()
+                            val dragDropState = rememberDragDropState(
+                                lazyListState = listState,
+                                onMove = { fromIndex, toIndex ->
+                                    viewModel.moveItem(fromIndex, toIndex)
+                                }
+                            )
+
                             LazyColumn(
+                                state = listState,
                                 verticalArrangement = Arrangement.spacedBy(6.dp)
                             ) {
                                 itemsIndexed(storedItems, key = { _, item -> item.id }) { index, item ->
                                     val depth = viewModel.depthOf(item, storedItems)
                                     val isActiveRow = isRunning && progressIndex == index
+                                    val isDragging = dragDropState.draggingItemIndex == index
                                     val rowTextColor = if (isActiveRow) Color.Black else Color.Unspecified
                                     val rowSecondaryTextColor = if (isActiveRow) Color.Black else MaterialTheme.colorScheme.onSurfaceVariant
 
@@ -469,9 +481,14 @@ fun TimerMainScreen(viewModel: TimerViewModel) {
                                         modifier = Modifier
                                             .fillMaxWidth()
                                             .padding(start = (depth * 16).dp)
+                                            .zIndex(if (isDragging) 1f else 0f)
+                                            .graphicsLayer {
+                                                translationY = if (isDragging) dragDropState.draggingItemOffsetY else 0f
+                                            }
                                             .clickable { activeSheetItem = item },
                                         colors = CardDefaults.cardColors(
-                                            containerColor = if (isActiveRow) Color(0xFFB3E5FC)
+                                            containerColor = if (isDragging) MaterialTheme.colorScheme.primaryContainer
+                                            else if (isActiveRow) Color(0xFFB3E5FC)
                                             else MaterialTheme.colorScheme.surfaceContainerLow
                                         )
                                     ) {
@@ -536,22 +553,27 @@ fun TimerMainScreen(viewModel: TimerViewModel) {
                                             }
 
                                             Row(verticalAlignment = Alignment.CenterVertically) {
-                                                IconButton(
-                                                    onClick = { viewModel.moveItemUp(item) },
-                                                    enabled = index > 0
+                                                Box(
+                                                    modifier = Modifier
+                                                        .dragHandleGesture(dragDropState, index)
+                                                        .padding(horizontal = 8.dp, vertical = 4.dp)
                                                 ) {
-                                                    Icon(Icons.Default.ArrowUpward, contentDescription = "Up", modifier = Modifier.height(18.dp))
-                                                }
-                                                IconButton(
-                                                    onClick = { viewModel.moveItemDown(item) },
-                                                    enabled = index < storedItems.size - 1
-                                                ) {
-                                                    Icon(Icons.Default.ArrowDownward, contentDescription = "Down", modifier = Modifier.height(18.dp))
+                                                    Icon(
+                                                        Icons.Default.DragHandle,
+                                                        contentDescription = stringResource(R.string.reorder),
+                                                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                                        modifier = Modifier.height(20.dp)
+                                                    )
                                                 }
                                                 IconButton(
                                                     onClick = { viewModel.deleteItem(item) }
                                                 ) {
-                                                    Icon(Icons.Default.Delete, contentDescription = stringResource(R.string.delete), tint = MaterialTheme.colorScheme.error, modifier = Modifier.height(18.dp))
+                                                    Icon(
+                                                        Icons.Default.Delete,
+                                                        contentDescription = stringResource(R.string.delete),
+                                                        tint = MaterialTheme.colorScheme.error,
+                                                        modifier = Modifier.height(18.dp)
+                                                    )
                                                 }
                                             }
                                         }
