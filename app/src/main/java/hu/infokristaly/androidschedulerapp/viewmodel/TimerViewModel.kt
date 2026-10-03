@@ -391,6 +391,17 @@ class TimerViewModel(application: Application) : AndroidViewModel(application) {
         repo.saveWorkspaceItems(currentList)
     }
 
+    fun moveItem(fromIndex: Int, toIndex: Int) {
+        if (fromIndex == toIndex) return
+        val currentList = _storedItems.value.toMutableList()
+        if (fromIndex in currentList.indices && toIndex in currentList.indices) {
+            val item = currentList.removeAt(fromIndex)
+            currentList.add(toIndex, item)
+            _storedItems.value = currentList
+            repo.saveWorkspaceItems(currentList)
+        }
+    }
+
     fun moveItemUp(item: TimerIntervalItem) {
         val currentList = _storedItems.value.toMutableList()
         val index = currentList.indexOfFirst { it.id == item.id }

@@ -24,6 +24,7 @@
     <string name="stop">Leállítás</string>
     <string name="previous_step">Előző lépés</string>
     <string name="next_step">Következő lépés</string>
+    <string name="reorder">Átrendezés</string>
     <string name="preset_saved_toast">Sablon sikeresen mentve!</string>
 
     <!-- Toolbar & Menu -->
