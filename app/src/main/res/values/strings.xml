@@ -64,6 +64,8 @@
     <string name="items_count_format">%d elem</string>
     <string name="edit_name">Név szerkesztése</string>
     <string name="delete">Törlés</string>
+    <string name="delete_item_confirm_title">Elem törlése</string>
+    <string name="delete_item_confirm_message">Biztosan törölni szeretnéd a kiválasztott elemet?</string>
     <string name="reload">Újratöltés</string>
     <string name="load">Betöltés</string>
     <string name="close">Bezárás</string>

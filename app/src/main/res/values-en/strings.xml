@@ -64,6 +64,8 @@
     <string name="items_count_format">%d items</string>
     <string name="edit_name">Edit name</string>
     <string name="delete">Delete</string>
+    <string name="delete_item_confirm_title">Delete item</string>
+    <string name="delete_item_confirm_message">Are you sure you want to delete the selected item?</string>
     <string name="reload">Reload</string>
     <string name="load">Load</string>
     <string name="close">Close</string>

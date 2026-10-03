@@ -136,6 +136,7 @@ fun TimerMainScreen(viewModel: TimerViewModel) {
     val isShowingSaveSuccessToast by viewModel.isShowingSaveSuccessToast.collectAsState()
 
     var activeSheetItem by remember { mutableStateOf<TimerIntervalItem?>(null) }
+    var itemToDelete by remember { mutableStateOf<TimerIntervalItem?>(null) }
     var isCreatingNewItem by remember { mutableStateOf(false) }
 
     var isShowingPresetsSheet by remember { mutableStateOf(false) }
@@ -566,7 +567,7 @@ fun TimerMainScreen(viewModel: TimerViewModel) {
                                                     )
                                                 }
                                                 IconButton(
-                                                    onClick = { viewModel.deleteItem(item) }
+                                                    onClick = { itemToDelete = item }
                                                 ) {
                                                     Icon(
                                                         Icons.Default.Delete,
@@ -802,6 +803,32 @@ fun TimerMainScreen(viewModel: TimerViewModel) {
                 },
                 dismissButton = {
                     TextButton(onClick = { isShowingNewTemplateAlert = false }) {
+                        Text(stringResource(R.string.cancel))
+                    }
+                }
+            )
+        }
+
+        if (itemToDelete != null) {
+            val target = itemToDelete
+            AlertDialog(
+                onDismissRequest = { itemToDelete = null },
+                title = { Text(stringResource(R.string.delete_item_confirm_title)) },
+                text = { Text(stringResource(R.string.delete_item_confirm_message)) },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            if (target != null) {
+                                viewModel.deleteItem(target)
+                            }
+                            itemToDelete = null
+                        }
+                    ) {
+                        Text(stringResource(R.string.delete), color = MaterialTheme.colorScheme.error)
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = { itemToDelete = null }) {
                         Text(stringResource(R.string.cancel))
                     }
                 }
